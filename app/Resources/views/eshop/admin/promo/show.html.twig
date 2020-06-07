@@ -1,0 +1,50 @@
+{% extends 'eshop/admin/base.html.twig' %}
+{% block title %}List of Promos{% endblock %}
+{% block title_link %} 
+    <h1>Promo</h1>
+
+    <table class="table table-striped table-hover">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ promo.id }}</td>
+            </tr>
+            <tr>
+                <th>code</th>
+                <td>{{ promo.code }}</td>
+            </tr>
+                <tr>
+                <th>valeur</th>
+                <td>{{ promo.valeur }}</td>
+            </tr>
+            <tr>
+                <th>titre</th>
+                <td>{{ promo.titre }}</td>
+            </tr>
+         
+            <tr>
+                <th>Date début</th>
+              <td>{% if promo.dated %}{{ promo.dated|date('Y-m-d H:i:s') }}{% endif %}</td>
+                
+            </tr>
+             <tr>
+                <th>Date Fin</th>
+                <td>{% if promo.datef %}{{ promo.datef|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('eshop_admin_promo_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('eshop_admin_promo_edit', { 'id': promo.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

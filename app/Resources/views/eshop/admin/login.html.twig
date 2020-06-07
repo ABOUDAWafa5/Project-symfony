@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!
+{% endblock %}
+
+{% block body %}
+
+  <section class="my_account_area pt--80 pb--55 bg--white">
+       <div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-12">
+						<div class="my__account__wrapper">
+							<h3 class="account__title">Login</h3>
+
+
+                    <form method="post">
+                        
+
+
+                          
+
+                            {% if app.user %}
+                                <div class="checkbox mb-3">You are logged in as
+                                    {{ app.user.username }},
+                                    <a href="{{ path('app_logout') }}">Logout</a>
+                                {% endif %}
+                               <div class="account__form">
+									<div class="input__box">
+										<label>Email address <span>*</span></label>
+										<input type="email" name="_username" id="inputEmail" placeholder="Email" required autofocus>
+									</div>
+									<div class="input__box">
+										<label>Password<span>*</span></label>
+										<input class="input__box" type="password" name="_password" id="inputPassword" class="input__box" placeholder="Password" required>
+									</div>
+
+                               
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+
+                                <button class="btnSecond" type="submit">
+                                    Sign in
+                                </button>
+                            
+</div>
+                        </form>
+                      
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+{% endblock %}

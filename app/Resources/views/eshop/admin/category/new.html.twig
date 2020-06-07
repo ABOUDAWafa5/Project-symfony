@@ -1,0 +1,10 @@
+{% extends 'eshop/admin/base.html.twig' %}
+
+{% block title %}New Category {% endblock %}
+{% block body %}
+{{form_start(theform)}}
+<div class="input-field col s12 m12 l12">
+{{form_widget(theform)}}
+</div>
+{{form_end(theform)}}
+{% endblock %}
